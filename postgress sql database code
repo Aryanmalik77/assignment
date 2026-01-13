@@ -1,0 +1,20 @@
+
+CREATE TABLE courses (
+    course_id SERIAL PRIMARY KEY,
+    course_name TEXT NOT NULL,
+    fees INTEGER
+);
+CREATE TABLE students (
+    student_id SERIAL PRIMARY KEY,
+    student_name TEXT NOT NULL,
+    age INTEGER,
+    course_id INTEGER REFERENCES courses(course_id) -- Ye dono tables ko jodta hai
+);
+INSERT INTO courses (course_name, fees) VALUES ('Python', 5000);
+INSERT INTO courses (course_name, fees) VALUES ('Web Design', 4000);
+INSERT INTO students (student_name, age, course_id) VALUES ('Rahul', 20, 1);
+INSERT INTO students (student_name, age, course_id) VALUES ('Sonia', 22, 2);
+INSERT INTO students (student_name, age, course_id) VALUES ('Amit', 21, 1);
+SELECT students.student_name, courses.course_name, courses.fees
+FROM students
+JOIN courses ON students.course_id = courses.course_id;
