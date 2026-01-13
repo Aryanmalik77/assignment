@@ -1,0 +1,43 @@
+Problem statement  2:
+Answer 1. 
+LLM (Large Language Model): I would rate my self as B. I understand LLM fundamentals and can work on practical tasks like embeddings, vector databases, semantic search, prompt engineering, and basic RAG pipeline design (chunking, retrieval, reranking concepts, evaluation basics). I can integrate APIs/frameworks ( LangChain) and build prototypes, but for deeper topics I may require supervision.I a open to learn
+Deep Learning – B (can code with supervision):
+I understand core DL concepts forward/backprop, loss functions, optimizers like Adam, regularization, dropout, batch norm and can implement/training basic neural networks CNN basics in PyTorch/TensorFlow. I can set up training loops, metrics, and debugging, but for advanced architecture design/tuning at scale large models, distributed training, complex optimization I may need guidance.Iam open to learn.
+ML – A (can code independently):
+I can independently build end-to-end ML solutions: data cleaning, feature engineering, train-test split, model selection , linear models, trees, boosting, evaluation accuracy,F1_score,AUC, confusion matrix, handling imbalance, cross-validation, and basic deployment patterns , inference pipeline. Comfortable with Python + scikit-learn, pandas, numpy, and writing clean reusable code.
+AI (overall) – B (can code with supervision):
+Broad understanding of AI concepts across ML/DL/NLP and problem-solving. Can implement solutions and iterate, but for highly specialized AI systems or production-grade optimization I would collaborate with senior guidance.I am open to learn
+Answer 2 ,
+The Key architectural components to create a chaatbot baased on llm are :
+1. The Data Ingestion and Embedding(Knowlwdge Base):
+This is the background process which include:
+Document Loaders : It is the step where the data is fetch using various sources  like PDFs, Firebase, APIs)
+Semantic Chunking: It involves breaking a long documents into smaller and meaningful pieces. We do so because too long context confuses the llm.
+Vectorization: Now the chunk that is created is now passed through an embedding model to create a mathematical representation.
+2.The Retrieval - Augmented Generation(RAG):
+Vector Database: It is the most important database as it stores the embeddings. It the database which also store spec	ial database.
+Sementic Search: It is also considired the most important step which main purpose is to find the semantic meaaning of the text. it convert the question into the vector and find the similar chunks from the database.
+Reranking: Now after the chunks that are found now they are needed to arranged or sort in a good manner. it is the step which sort them agaain to ensure the relevant information so that they can be send to the LLM.
+3.The Orchestration Layer:
+It is the layer which manages the workflow and reasoning of the chatbot using the framewoks like langchain.
+Prompt Template: it is the template which give the prompts to the LLM which task to be performed and how the ytask should be performed. These are the instructions or rules are required to performa specific task.
+Memory Management: It is main step which is responsible for storing the memory. it is responsible for storing   all the conversation. It also resposible for storing the chat history .
+Agentic Tools : This allows the LLM whic action to be taken or you can say which action should be perform.it can be like checking a real -time shipping status via an api or performing calculation.
+4.LLM Inference layer:
+This is the l;ayer which gernerate the final result/response. It include models like gpt3, claude 3 etc.
+The isa the layer where the final result is generated.
+5.The Observablity layer: 
+In this the system is monitor properly and observed for saftey. It also check the input and output for. 
+
+ 
+ Answer 3 :
+A vector database is a specialized storage system designed to manage data as high-dimensional vectors (lists of numbers) rather than traditional rows and columns. These numbers, called embeddings, represent the meaning or features of the data. Computers cannot read words or see images like we do, so we turn them into a list of numbers called Embeddings.
+Vector databases store data that has been processed through deep learning models into embeddings. These embeddings compress complex, unstructured data into a fixed-length numerical vector
+For Large Language Models (LLMs), a vector database acts as a Long-Term Memory and External Knowledge Base.
+  It acts as the External Memory for LLMs. By providing relevant context to a model like GPT-4, organizations can prevent hallucinations and ensure the AI's answers are grounded in proprietary, up-to-date business data.
+A vector database doesn't just search every point (which would be too slow). It uses specialized Approximate Nearest Neighbor (ANN) algorithms. These are purely mathematical data structures.
+•	
+I choose PostgreSQL with pgvector because it eliminates infrastructure sprawl. By unifying relational logic and vector similarity within a compliant environment, I am building a system that is operationally simpler, inherently more secure, and significantly cheaper to scale than a fragmented multi-database architecture.
+With the help of postgres, If a legal or financial document is updated, the vector is updated within the same transaction. This is critical for high-stakes environments where you cannot risk an AI model retrieving outdated information.
+With the help of postgree we will get point to point recovery and it is easy manageable,With pgvector, your metadata and your vectors live in the same table.
+Postgres has 30 years of  Row-Level Security (RLS). You can ensure a user only searches vectors they have permission to see.It provides more security as compared to the other data,
